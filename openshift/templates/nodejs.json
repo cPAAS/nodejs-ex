@@ -200,7 +200,7 @@
     {
       "name": "SOURCE_REPOSITORY_URL",
       "description": "The URL of the repository with your application source code",
-      "value": "https://github.com/cPAAS/nodejs-ex.git"
+      "value": "http://192.168.0.48:8081/nodejsapp"
     },
     {
       "name": "SOURCE_REPOSITORY_REF",
