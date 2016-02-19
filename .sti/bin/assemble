@@ -24,10 +24,10 @@ set -e
 #--userconfig=$HOME/.cnpmrc"
 
 echo "---> Installing application source"
-tar xvf .npm/npm-cache.tar.gz -C ~/
 cp -Rf /tmp/src/. ./
 
 echo "---> Building your Node application from source"
+tar xvf .npm/npm-cache.tar.gz -C ~/
 npm config set strict-ssl false
 npm install -d --registry=http://registry.npm.taobao.org --cache-min Infinity
 
