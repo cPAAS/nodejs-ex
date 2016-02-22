@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ "$1" == "-h" ]]; then
+	# If the 'nginx-centos7' assemble script is executed with '-h' flag,
+	# print the usage.
+	exec /usr/libexec/s2i/usage
+fi
+
 # Prevent running assemble in builders different than official STI image.
 # The official nodejs:0.10-onbuild already run npm install and use different
 # application folder.
@@ -23,9 +29,18 @@ set -e
 #--disturl=http://registry.npm.taobao.org/mirrors/node \
 #--userconfig=$HOME/.cnpmrc"
 
+# Restore artifacts from the previous build (if they exist).
+# We set them here just for show, but you will need to set this up with your logic
+# according to the application directory that you chose.
+if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
+  echo "---> Restoring build artifacts..."
+  mv /tmp/artifacts/* ~/
+  ls ~/.npm/
+fi
+
 echo "---> Installing application source"
 cp -Rf /tmp/src/. ./
-tar xvf .npm/npm-cache.tar.gz -C ~/
+#tar xvf .npm/npm-cache.tar.gz -C ~/
 
 echo "---> Building your Node application from source"
 npm config set strict-ssl false
