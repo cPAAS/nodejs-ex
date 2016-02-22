@@ -24,8 +24,8 @@ set -e
 #--userconfig=$HOME/.cnpmrc"
 
 echo "---> Installing application source"
-tar xvf .npm/npm-cache.tar.gz -C ~/
 cp -Rf /tmp/src/. ./
+tar xvf .npm/npm-cache.tar.gz -C ~/
 
 echo "---> Building your Node application from source"
 npm config set strict-ssl false
