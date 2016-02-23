@@ -234,7 +234,7 @@
           {
             "type": "ImageChange",
             "imageChangeParams": {
-              "automatic": false,
+              "automatic": true,
               "containerNames": [
                 "mongodb"
               ],
@@ -299,7 +299,7 @@
     {
       "name": "SOURCE_REPOSITORY_URL",
       "description": "The URL of the repository with your application source code",
-      "value": "https://github.com/openshift/nodejs-ex.git"
+      "value": "http://192.168.0.48:8081/nodejs-ex"
     },
     {
       "name": "SOURCE_REPOSITORY_REF",
@@ -312,7 +312,7 @@
     {
       "name": "APPLICATION_DOMAIN",
       "description": "The exposed hostname that will route to the Node.js service, if left blank a value will be defaulted.",
-      "value": ""
+      "value": "nodejs-ex.ceyes.os"
     },
     {
       "name": "GITHUB_WEBHOOK_SECRET",
